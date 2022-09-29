@@ -96,20 +96,19 @@ adding audit rule",
 Add Elastic pipeline for auditbeat
 
 ```
-Copy /opt/so/… to /opt/so/…
+cp  /opt/so/saltstack/default/salt/elasticsearch/files/ingest/beats.common  /opt/so/saltstack/local/salt/elasticsearch/files/ingest/beats.common
 ```
 
-Add auditbeat pipeline as shown below
+Add auditbeat pipeline to the top line of beats.common pipeline as shown below
 ```
 {
   "description" : "beats.common",
   "processors" : [
-    { "pipeline":      { "if": "ctx.agent?.type == 'auditbeat'",   "name": 
-"auditbeat"  }  },
+    { "pipeline":      { "if": "ctx.agent?.type == 'auditbeat'",   "name": "auditbeat"  }  },
 ```
 ## Normalize data to match other host events
 ```
-Copy /opt/so/… to /opt/so/…
+vi /opt/so/saltstack/local/salt/elasticsearch/files/ingest/auditbeat
 ```
 ## Add auditbeat parsers as shown below:
 ```
