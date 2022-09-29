@@ -126,13 +126,18 @@ vi /opt/so/saltstack/local/salt/elasticsearch/files/ingest/auditbeat
 ```
 ## Create SOC Dashboards
 ```
-Copy /opt/so/… to /opt/so/…
+cp /opt/so/saltstack/default/salt/soc/files/soc/dashboards.queries.json /opt/so/saltstack/local/salt/soc/files/soc/dashboards.queries.json
 ``` 
+```
+vi /opt/so/saltstack/local/salt/soc/files/soc/dashboards.queries.json
+```
 ``` 
- { "name": "Linux_Processes", "description": "Linux Process logs", "query": 
-* AND (event.module:"auditd" OR  event.module:"laurel" OR  event.module:"sysmon") | groupby event.module event.dataset | groupby
-event.dataset process.executable process.command_line process.parent.command_line
-},
+ { "name": "Auditbeat", "description": "Auditbeat logs", "query": "event.module:auditd | groupby event.module event.dataset | groupby event.dataset process.ex        ecutable process.command_line "},
 ``` 
+Restart SOC
+```
+sudo so-soc-restart
+```
+![image](https://user-images.githubusercontent.com/73084279/193047750-99c4c791-fec7-439d-b9ac-b28369d7420a.png)
+![image](https://user-images.githubusercontent.com/73084279/193048869-f3060201-02f8-4a31-9389-a40b858c83cb.png)
 
-![image](https://user-images.githubusercontent.com/73084279/193039909-f6b8ca7b-dc7e-4be0-9f95-538982c077b0.png)
