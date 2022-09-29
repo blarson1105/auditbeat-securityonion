@@ -1,6 +1,7 @@
 # auditbeat-securityonion
 Configuration files to ingest auditbeats into SecurityOnion
-Preflight Checks
+
+## Preflight Checks
 
 ## See if auditd is running:
 ```
