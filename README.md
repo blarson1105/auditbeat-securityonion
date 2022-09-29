@@ -86,7 +86,7 @@ adding audit rule",
 
 ## View data in Security Onion SOC Console
 ```
-* AND host.name: "auditbeat" | groupby "event.category"
+* AND observer.name: "auditbeat" | groupby "event.category"
 ```
 
 # Configure SecurityOnion
