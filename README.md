@@ -89,6 +89,9 @@ adding audit rule",
 * AND observer.name: "auditbeat" | groupby "event.category"
 ```
 
+![image](https://user-images.githubusercontent.com/73084279/193045077-b0a912c9-1f87-4c8f-bc91-867425ef491e.png)
+
+
 # Configure SecurityOnion
 Add Elastic pipeline for auditbeat
 
